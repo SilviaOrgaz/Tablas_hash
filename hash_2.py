@@ -27,8 +27,16 @@ class hash_tabla:
         if self.tabla[hash] is None:
             self.tabla[hash] = valor
 
+def encriptar(cadena):
+    resultado = ""
+    A = hash_tabla(len(alfabeto))
+    for i in cadena:
+        resultado = resultado + (chr(A.funcion_hash(i))+33) 
+    print (resultado)
+
 alfabeto = [chr(i) for i in range(32, 125)]
 #Creo la tabla hash del tamaño de la longitud del alfabeto
 A = hash_tabla(len(alfabeto))
 A.Insertar_elementos("A")
-A.imprime_tabla()
+#A.imprime_tabla()
+encriptar("Hola")
