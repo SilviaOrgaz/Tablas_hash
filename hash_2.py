@@ -8,6 +8,10 @@ class hash_tabla:
         self.tamaño_tab = tamaño_tab
         self.tabla = [None] * tamaño_tab
 
+    def imprime_tabla(self):
+        for i in range (len(self.tabla)):
+            print ("{}: {}".format(i, self.tabla[i]))
+
     #Calcula la función hash de una cadena.
     #Asigno un valor de la tabla hash a cada caracter
     #Nos basamos en la función de Bernstein, el número 33 es conocido como el número mágico.
@@ -21,10 +25,10 @@ class hash_tabla:
         hash = self.funcion_hash(valor)
         #Si esta posición esta vacía lo añade.
         if self.tabla[hash] is None:
-            self.table[hash] = valor
+            self.tabla[hash] = valor
 
 alfabeto = [chr(i) for i in range(32, 125)]
 #Creo la tabla hash del tamaño de la longitud del alfabeto
 A = hash_tabla(len(alfabeto))
-num = A.funcion_hash("A")
-print(num)
+A.Insertar_elementos("A")
+A.imprime_tabla()
