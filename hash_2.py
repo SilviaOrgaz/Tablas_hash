@@ -27,16 +27,22 @@ class hash_tabla:
         if self.tabla[hash] is None:
             self.tabla[hash] = valor
 
+#Calcula el código hash de cada elemento de la cadena y le sumo 33 para convertirlo a caracteres imprimibles.
+#Devuelve la cadena hasheada
 def encriptar(cadena):
     resultado = ""
     A = hash_tabla(len(alfabeto))
     for i in cadena:
-        resultado = resultado + (chr(A.funcion_hash(i))+33) 
-    print (resultado)
+        resultado = resultado + chr(A.funcion_hash(i)+33)
+    return resultado
 
 alfabeto = [chr(i) for i in range(32, 125)]
 #Creo la tabla hash del tamaño de la longitud del alfabeto
 A = hash_tabla(len(alfabeto))
+#Inserto un elemento en la tabla hash
 A.Insertar_elementos("A")
+#Imprime la tabla hash para comprobado que se han insertado bien los elementos
 #A.imprime_tabla()
-encriptar("Hola")
+
+#Imprime una palabra encriptada
+print(encriptar("Hola"))
