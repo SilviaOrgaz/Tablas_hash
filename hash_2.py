@@ -6,12 +6,10 @@ class hash_tabla:
         self.tabla = [None] * tamaño_tab
 
     #Calcula la función hash de una cadena.
-    #Recorro la cadena sumando los valores ascii de los elementos de la cadena.
-    def funcion_hash(self, cadena):
-        llave = 0
-        for i in range(0, len(cadena)):
-            llave +=ord(cadena[i])
-        return cadena % self.tamaño_tab
+    #Asigno un valor de la tabla hash a cada caracter
+    #Nos basamos en la función de Bernstein, el número 33 es conocido como el número mágico.
+    def funcion_hash(self, caracter):
+        return ord(caracter) * 33 % self.tamaño_tab
     
     #Método para ingresar elementos
     def Insertar_elementos(self, value):
