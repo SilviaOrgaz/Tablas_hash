@@ -18,3 +18,7 @@ class hash_tabla:
         hash = self.funcion_hash(value)
         if self.tabla[hash] is None:
             self.table[hash] = value
+
+alfabeto = [chr(i) for i in range(32, 125)]
+#Creo la tabla hash del tamaño de la longitud del alfabeto
+A = hash_tabla(len(alfabeto))
