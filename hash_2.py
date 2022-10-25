@@ -32,25 +32,28 @@ class hash_tabla:
     def encriptar(self, cadena):
         resultado = ""
         for i in cadena:
+            self.Insertar_elementos(i)
             resultado = resultado + chr(self.funcion_hash(i)+33)
         return resultado
     
     def des_encriptar(self, cadena):
         resultado = ""
         for i in cadena:
-            resultado = resultado  + self.tabla[ord(i)-33]
+            resultado = resultado +str(self.tabla[ord(i)-33])
         return resultado
 
 alfabeto = [chr(i) for i in range(32, 125)]
 #Creo la tabla hash del tamaño de la longitud del alfabeto
 A = hash_tabla(len(alfabeto))
 #Inserto un elemento en la tabla hash
-A.Insertar_elementos("A")
+#A.Insertar_elementos("A")
 #Imprime la tabla hash para comprobado que se han insertado bien los elementos
 #A.imprime_tabla()
 
 #Imprime una palabra encriptada
-cadena = "HOLA"
+cadena = input("Introduce una cadena: ")
 print("Cadena sin encriptar: {}".format(cadena))
 Cadena_encriptada = A.encriptar(cadena)
-print("Cadena encrptada: {}".format(Cadena_encriptada))
+print("Cadena encriptada: {}".format(Cadena_encriptada))
+Cadena_des_escriptada = A.des_encriptar(Cadena_encriptada)
+print("Cadena desencriptada: {}".format(Cadena_des_escriptada))
