@@ -27,15 +27,16 @@ class hash_tabla:
         if self.tabla[hash] is None:
             self.tabla[hash] = valor
 
-#Calcula el código hash de cada elemento de la cadena y le sumo 33 para convertirlo a caracteres imprimibles.
-#Devuelve la cadena hasheada
+    #Calcula el código hash de cada elemento de la cadena y le sumo 33 para convertirlo a caracteres imprimibles.
+    #Devuelve la cadena hasheada
     def encriptar(self, cadena):
         resultado = ""
         for i in cadena:
             self.Insertar_elementos(i)
             resultado = resultado + chr(self.funcion_hash(i)+33)
         return resultado
-    
+
+    #A partir de una cadena hasheada te devuelve la cadena en claro.
     def des_encriptar(self, cadena):
         resultado = ""
         for i in cadena:
