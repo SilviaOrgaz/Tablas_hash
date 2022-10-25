@@ -34,6 +34,11 @@ class hash_tabla:
         for i in cadena:
             resultado = resultado + chr(self.funcion_hash(i)+33)
         return resultado
+    
+    def des_encriptar(self, cadena):
+        resultado = ""
+        for i in cadena:
+            resultado = resultado + 
 
 alfabeto = [chr(i) for i in range(32, 125)]
 #Creo la tabla hash del tamaño de la longitud del alfabeto
@@ -44,4 +49,7 @@ A.Insertar_elementos("A")
 #A.imprime_tabla()
 
 #Imprime una palabra encriptada
-print(A.encriptar("Hola"))
+cadena = "Hola"
+print("Cadena sin encriptar: {}".format(cadena))
+Cadena_encriptada = A.encriptar(cadena)
+print("Cadena encrptada: {}".format(Cadena_encriptada))
